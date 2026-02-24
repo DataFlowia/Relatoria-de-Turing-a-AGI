@@ -73,6 +73,24 @@
             pointer-events: none;
         }
 
+        /* Input Styles */
+        .form-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-cian);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+        }
+
         /* Glass Panel para el resumen inicial */
         .glass-panel {
             background: rgba(30, 41, 59, 0.7);
@@ -106,8 +124,8 @@
                 <div class="h-1 w-24 bg-gradient-to-r from-cyan-500 to-pink-500 mb-6"></div>
                 <div class="space-y-1">
                     <span class="block text-gray-500 uppercase text-[10px] tracking-widest">Ponente</span>
-                    <h2 class="text-3xl font-bold text-white">Rodrigo Cárcamo Hurtado</h2>
-                    <span class="text-cyan-400 font-medium"> Founder DataflowIA</span>
+                    <h2 class="text-3xl font-bold text-white uppercase">Rodrigo Cárcamo Hurtado</h2>
+                    <span class="text-cyan-400 font-medium tracking-widest uppercase text-sm">Founder DataflowIA</span>
                 </div>
             </div>
         </div>
@@ -137,10 +155,6 @@
                     <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Génesis: Sueños de Silicio</h3>
                 </div>
                 <p class="text-gray-400 leading-relaxed mb-6">Desde el Test de Turing en 1950 hasta la explosión del Deep Learning. Analizamos cómo la convergencia de datos masivos sacó a la IA de los laboratorios hacia la infraestructura global.</p>
-                <ul class="space-y-3 text-sm text-cyan-200/70">
-                    <li class="flex items-center gap-2"><span class="text-cyan-400">⚡</span> Nacimiento oficial en Dartmouth (1956)</li>
-                    <li class="flex items-center gap-2"><span class="text-cyan-400">⚡</span> Superación de los "Inviernos de la IA"</li>
-                </ul>
             </div>
             <div class="flex-1 chart-container">
                 <canvas id="chart1"></canvas>
@@ -155,10 +169,6 @@
                     <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Vida Diaria: Presencia Invisible</h3>
                 </div>
                 <p class="text-gray-400 leading-relaxed mb-6">Los algoritmos ya no son externos; son la arquitectura de nuestra realidad. Moldean deseos a través de sistemas de recomendación y burbujas de filtros.</p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 bg-white/5 rounded-xl text-center"><span class="block text-indigo-400 font-bold">95%</span><span class="text-[10px] uppercase text-gray-500">Influencia Digital</span></div>
-                    <div class="p-4 bg-white/5 rounded-xl text-center"><span class="block text-indigo-400 font-bold">78%</span><span class="text-[10px] uppercase text-gray-500">Sesgo Algorítmico</span></div>
-                </div>
             </div>
             <div class="flex-1 chart-container">
                 <canvas id="chart2"></canvas>
@@ -179,12 +189,8 @@
             </div>
             <div class="flex-1 space-y-4">
                 <div class="bg-pink-500/10 p-6 rounded-2xl border border-pink-500/20">
-                    <h4 class="text-pink-400 font-bold mb-2 text-sm">Impacto en Profesiones</h4>
+                    <h4 class="text-pink-400 font-bold mb-2 text-sm uppercase">Impacto en Profesiones</h4>
                     <p class="text-xs text-gray-300">Roles de programación y administración enfrentan una automatización del 40-60% de tareas.</p>
-                </div>
-                <div class="bg-white/5 p-6 rounded-2xl">
-                    <h4 class="text-white font-bold mb-2 text-sm">Nuevos Roles</h4>
-                    <p class="text-xs text-gray-400">Ingeniería de Prompts y Auditores de Ética Algorítmica.</p>
                 </div>
             </div>
         </section>
@@ -197,10 +203,6 @@
                     <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Salud: El Oráculo Médico</h3>
                 </div>
                 <p class="text-gray-400 leading-relaxed mb-6">Desde el diagnóstico de precisión hasta AlphaFold. La IA está reduciendo el tiempo de descubrimiento de fármacos de décadas a solo meses.</p>
-                <div class="flex gap-4">
-                    <div class="w-2 h-16 bg-gradient-to-b from-cyan-500 to-transparent rounded-full"></div>
-                    <p class="text-sm italic text-cyan-100/60">"Pasamos de una medicina reactiva a una predictiva y personalizada."</p>
-                </div>
             </div>
             <div class="flex-1 chart-container">
                 <canvas id="chart4"></canvas>
@@ -218,21 +220,47 @@
                     <div class="space-y-6">
                         <div>
                             <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Vínculos Sociales</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed">Modelos actuando como amigos o asesores, generando una nueva inteligencia emocional asistida pero con riesgos de dependencia.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Salud Mental</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed">Capacidad de decodificar redes neuronales para tratar PTSD, con el riesgo de manipulación emocional algorítmica.</p>
+                            <p class="text-xs text-gray-400 leading-relaxed">Modelos actuando como amigos o asesores, generando una nueva inteligencia emocional asistida.</p>
                         </div>
                         <div>
                             <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Alineación Ética</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed">Asegurar que los objetivos de una IA poderosa coincidan con los valores humanos para evitar pérdidas de autonomía.</p>
+                            <p class="text-xs text-gray-400 leading-relaxed">Asegurar que los objetivos de una IA coincidan con los valores humanos.</p>
                         </div>
                     </div>
                 </div>
                 <div class="chart-container">
                     <canvas id="chart5"></canvas>
                 </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Contacto -->
+        <section class="card-3d border-glow-cian p-10 md:p-16">
+            <div class="max-w-xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold text-white uppercase tracking-tighter">Contáctanos</h3>
+                    <p class="text-cyan-400 text-sm mt-2">Hablemos sobre el futuro de la Inteligencia Artificial</p>
+                </div>
+                
+                <form action="https://formsubmit.co/rodrigo@dataflowia.com" method="POST" class="space-y-6">
+                    <input type="hidden" name="_subject" value="Nuevo contacto desde Relatoría IA">
+                    <input type="hidden" name="_next" value="https://www.dataflowia.com">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Nombre:</label>
+                        <input type="text" name="name" required class="form-input" placeholder="Tu nombre completo">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Email:</label>
+                        <input type="email" name="email" required class="form-input" placeholder="tu@correo.com">
+                    </div>
+
+                    <button type="submit" class="w-full py-4 px-6 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transform hover:-translate-y-1">
+                        Enviar Mensaje
+                    </button>
+                </form>
             </div>
         </section>
 
@@ -244,8 +272,8 @@
                 </p>
                 <div class="flex flex-col items-center">
                     <div class="h-1 w-12 bg-cyan-500 mb-4"></div>
-                    <span class="font-black text-xl tracking-tighter">RODRIGO CÁRCAMO HURTADO</span>
-                    <span class="text-cyan-600 font-bold text-xs uppercase tracking-widest"> Founder DataflowIA</span>
+                    <span class="font-black text-xl tracking-tighter uppercase">Rodrigo Cárcamo Hurtado</span>
+                    <span class="text-cyan-600 font-bold text-xs uppercase tracking-widest">Founder DataflowIA</span>
                 </div>
             </div>
         </section>
@@ -260,16 +288,15 @@
             </div>
             <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-12 text-gray-400 text-sm">
                 <a href="https://www.dataflowia.com" class="hover:text-cyan-400 transition-colors">www.dataflowia.com</a>
-                <a href="mailto:contacto@dataflowia.com" class="hover:text-cyan-400 transition-colors">contacto@dataflowia.com</a>
+                <a href="mailto:rodrigo@dataflowia.com" class="hover:text-cyan-400 transition-colors">rodrigo@dataflowia.com</a>
             </div>
             <div class="text-[10px] text-gray-600 uppercase tracking-[0.5em]">
-                &copy; 2026 Todos los derechos reservados | Rodrigo Cárcamo
+                &copy; 2026 Todos los derechos reservados | Rodrigo Cárcamo | Founder
             </div>
         </div>
     </footer>
 
     <script>
-        // Observador para animaciones suaves al hacer scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -280,9 +307,7 @@
 
         document.querySelectorAll('.card-3d').forEach(card => observer.observe(card));
 
-        // Inicialización de Gráficos corregida
         window.onload = () => {
-            // Configuración base para evitar errores de escalas
             const baseRadarOptions = {
                 maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
@@ -296,7 +321,6 @@
                 }
             };
 
-            // M1: Génesis
             new Chart(document.getElementById('chart1'), {
                 type: 'doughnut',
                 data: {
@@ -310,7 +334,6 @@
                 options: { maintainAspectRatio: false, plugins: { legend: { display: false } } }
             });
 
-            // M2: Vida Diaria
             new Chart(document.getElementById('chart2'), {
                 type: 'radar',
                 data: {
@@ -325,7 +348,6 @@
                 options: baseRadarOptions
             });
 
-            // M3: Trabajo
             new Chart(document.getElementById('chart3'), {
                 type: 'bar',
                 data: {
@@ -346,7 +368,6 @@
                 }
             });
 
-            // M4: Salud
             new Chart(document.getElementById('chart4'), {
                 type: 'polarArea',
                 data: {
@@ -364,7 +385,6 @@
                 }
             });
 
-            // M5: Conducta
             new Chart(document.getElementById('chart5'), {
                 type: 'radar',
                 data: {

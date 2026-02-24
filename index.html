@@ -3,245 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DATAFLOW IA - El Despertar de la Máquina</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Relatoría IA - Rodrigo Cárcamo - Dataflow IA</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #312e81; 
-            --color-accent: #06b6d4; /* Cian Intenso */
-            --color-highlight: #ec4899; 
-            --bg-light: #f8fafc;
+            --color-cian: #06b6d4;
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-emerald: #10b981;
+            --bg-dark: #020617;
         }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: #1e293b;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            overflow-x: hidden;
         }
+
         h1, h2, h3, .brand-logo {
             font-family: 'Orbitron', sans-serif;
         }
+
+        /* Efectos de Contenedor 3D */
+        .card-3d {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .card-3d.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-3d:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.6);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        /* Bordes Brillantes por Módulo */
+        .border-glow-cian { border-left: 6px solid var(--color-cian); }
+        .border-glow-indigo { border-left: 6px solid var(--color-indigo); }
+        .border-glow-pink { border-left: 6px solid var(--color-pink); }
+        .border-glow-emerald { border-left: 6px solid var(--color-emerald); }
+
         .chart-container {
             position: relative;
+            height: 300px;
             width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
         }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 400px;
-            }
+
+        .circuit-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/circuit-board.png');
+            opacity: 0.05;
+            z-index: -1;
+            pointer-events: none;
         }
-        .trinity-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-weight: bold;
-            color: white;
-            font-size: 0.9rem;
-            opacity: 0.9;
-            transition: transform 0.3s;
-        }
-        .timeline-dot {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: var(--color-accent);
-            border: 4px solid white;
-            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+
+        /* Glass Panel para el resumen inicial */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header with Branding -->
-    <header class="bg-indigo-950 text-white relative overflow-hidden">
-        <!-- Logo Positioned Top Left -->
-        <div class="absolute top-6 left-6 z-20">
-            <span class="brand-logo text-cyan-400 font-black text-xl tracking-tighter">
+    <div class="circuit-bg"></div>
+
+    <!-- Header -->
+    <header class="relative pt-32 pb-20 px-8">
+        <div class="absolute top-8 left-8 z-50">
+            <div class="brand-logo text-cyan-400 font-black text-2xl tracking-tighter flex items-center gap-2">
+                <div class="w-8 h-8 bg-cyan-400 rounded-sm rotate-45 flex items-center justify-center">
+                    <div class="w-4 h-4 bg-slate-950 rounded-full"></div>
+                </div>
                 DATAFLOW IA
-            </span>
+            </div>
         </div>
 
-        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/circuit-board.png')]"></div>
-        
-        <div class="max-w-6xl mx-auto relative z-10 text-center py-24 px-6">
-            <span class="text-cyan-400 font-bold tracking-widest uppercase text-sm mb-4 block">Relatoría Magistral</span>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-pink-500">
-                EL DESPERTAR DE LA MÁQUINA
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-6">Relatoría Magistral</span>
+            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-white to-pink-500 uppercase">
+                El Despertar de la Máquina
             </h1>
-            <h2 class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                De la Lógica de Turing a la Inteligencia General Artificial (AGI)
-            </h2>
-            <div class="inline-block bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
-                <p class="text-sm font-light">Ponente: Rodrigo Cárcamo Hurtado Founder DataflowIA Especialista en IA y Ética Tecnológica</p>
+            
+            <div class="flex flex-col items-center">
+                <div class="h-1 w-24 bg-gradient-to-r from-cyan-500 to-pink-500 mb-6"></div>
+                <div class="space-y-1">
+                    <span class="block text-gray-500 uppercase text-[10px] tracking-widest">Ponente</span>
+                    <h2 class="text-3xl font-bold text-white">Rodrigo Cárcamo Hurtado</h2>
+                    <span class="text-cyan-400 font-medium"> Founder DataflowIA</span>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Content Sections -->
-    <main>
-        <!-- Module 1 -->
-        <section class="py-16 px-6 max-w-6xl mx-auto">
+    <main class="max-w-6xl mx-auto px-6 space-y-24 pb-32">
+
+        <!-- Panel de Resumen Inicial -->
+        <div class="card-3d visible glass-panel p-8 md:p-10 border-t-4 border-cyan-500">
+            <div class="grid md:grid-cols-4 gap-8 items-center">
+                <div class="md:col-span-3">
+                    <h2 class="text-2xl font-bold text-white mb-3">De la Lógica de Turing a la Psique Humana</h2>
+                    <p class="text-gray-400 leading-relaxed">Una exploración profunda sobre cómo la inteligencia artificial ha dejado de ser una herramienta para convertirse en una extensión de nuestra conducta y estructura social.</p>
+                </div>
+                <div class="bg-slate-900/50 rounded-2xl p-6 text-center border border-white/5">
+                    <div class="text-4xl font-black text-pink-500">2026</div>
+                    <div class="text-[10px] uppercase tracking-widest font-bold text-gray-500">Año de Proyección</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Módulo 1: Génesis -->
+        <section class="card-3d border-glow-cian p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-cyan-400 font-black text-4xl opacity-20">01</span>
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Génesis: Sueños de Silicio</h3>
+                </div>
+                <p class="text-gray-400 leading-relaxed mb-6">Desde el Test de Turing en 1950 hasta la explosión del Deep Learning. Analizamos cómo la convergencia de datos masivos sacó a la IA de los laboratorios hacia la infraestructura global.</p>
+                <ul class="space-y-3 text-sm text-cyan-200/70">
+                    <li class="flex items-center gap-2"><span class="text-cyan-400">⚡</span> Nacimiento oficial en Dartmouth (1956)</li>
+                    <li class="flex items-center gap-2"><span class="text-cyan-400">⚡</span> Superación de los "Inviernos de la IA"</li>
+                </ul>
+            </div>
+            <div class="flex-1 chart-container">
+                <canvas id="chart1"></canvas>
+            </div>
+        </section>
+
+        <!-- Módulo 2: Vida Diaria -->
+        <section class="card-3d border-glow-indigo p-10 md:p-16 flex flex-col md:flex-row-reverse gap-12 items-center">
+            <div class="flex-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-indigo-400 font-black text-4xl opacity-20">02</span>
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Vida Diaria: Presencia Invisible</h3>
+                </div>
+                <p class="text-gray-400 leading-relaxed mb-6">Los algoritmos ya no son externos; son la arquitectura de nuestra realidad. Moldean deseos a través de sistemas de recomendación y burbujas de filtros.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-white/5 rounded-xl text-center"><span class="block text-indigo-400 font-bold">95%</span><span class="text-[10px] uppercase text-gray-500">Influencia Digital</span></div>
+                    <div class="p-4 bg-white/5 rounded-xl text-center"><span class="block text-indigo-400 font-bold">78%</span><span class="text-[10px] uppercase text-gray-500">Sesgo Algorítmico</span></div>
+                </div>
+            </div>
+            <div class="flex-1 chart-container">
+                <canvas id="chart2"></canvas>
+            </div>
+        </section>
+
+        <!-- Módulo 3: Trabajo -->
+        <section class="card-3d border-glow-pink p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-pink-400 font-black text-4xl opacity-20">03</span>
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Economía: Humano vs Copiloto</h3>
+                </div>
+                <p class="text-gray-400 leading-relaxed mb-6">La IA como el copiloto definitivo. No se trata de sustitución, sino de aumento de capacidades. El desafío reside en la re-capacitación masiva del talento.</p>
+                <div class="chart-container" style="height: 200px;">
+                    <canvas id="chart3"></canvas>
+                </div>
+            </div>
+            <div class="flex-1 space-y-4">
+                <div class="bg-pink-500/10 p-6 rounded-2xl border border-pink-500/20">
+                    <h4 class="text-pink-400 font-bold mb-2 text-sm">Impacto en Profesiones</h4>
+                    <p class="text-xs text-gray-300">Roles de programación y administración enfrentan una automatización del 40-60% de tareas.</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-2xl">
+                    <h4 class="text-white font-bold mb-2 text-sm">Nuevos Roles</h4>
+                    <p class="text-xs text-gray-400">Ingeniería de Prompts y Auditores de Ética Algorítmica.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Módulo 4: Salud -->
+        <section class="card-3d border-glow-cian p-10 md:p-16 flex flex-col md:flex-row-reverse gap-12 items-center">
+            <div class="flex-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-cyan-400 font-black text-4xl opacity-20">04</span>
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Salud: El Oráculo Médico</h3>
+                </div>
+                <p class="text-gray-400 leading-relaxed mb-6">Desde el diagnóstico de precisión hasta AlphaFold. La IA está reduciendo el tiempo de descubrimiento de fármacos de décadas a solo meses.</p>
+                <div class="flex gap-4">
+                    <div class="w-2 h-16 bg-gradient-to-b from-cyan-500 to-transparent rounded-full"></div>
+                    <p class="text-sm italic text-cyan-100/60">"Pasamos de una medicina reactiva a una predictiva y personalizada."</p>
+                </div>
+            </div>
+            <div class="flex-1 chart-container">
+                <canvas id="chart4"></canvas>
+            </div>
+        </section>
+
+        <!-- Módulo 5: Conducta -->
+        <section class="card-3d border-glow-emerald p-10 md:p-16 bg-emerald-500/5">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h3 class="text-pink-500 font-bold uppercase tracking-wide mb-2">Módulo 1: La Génesis</h3>
-                    <h2 class="text-4xl font-bold text-slate-800 mb-6">Sueños de Silicio</h2>
-                    <p class="text-lg text-slate-600 mb-6">Desde el Test de Turing en 1950 hasta la explosión del Deep Learning. Analizamos cómo la convergencia de datos y cómputo cambió el mundo.</p>
-                    <div class="bg-cyan-50 p-4 rounded-lg border-l-4 border-cyan-500">
-                        <p class="text-cyan-900 font-medium italic">"¿Pueden pensar las máquinas?" - Alan Turing</p>
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="text-emerald-400 font-black text-4xl opacity-20">05</span>
+                        <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Conducta y Psique</h3>
                     </div>
-                </div>
-                <div class="relative pl-8 border-l-4 border-slate-200 py-4">
-                    <div class="mb-8 relative"><div class="absolute -left-[42px] top-1 timeline-dot bg-cyan-500"></div><h4 class="font-bold">1950: Turing</h4></div>
-                    <div class="mb-8 relative"><div class="absolute -left-[42px] top-1 timeline-dot bg-indigo-500"></div><h4 class="font-bold">1956: Dartmouth</h4></div>
-                    <div class="mb-8 relative"><div class="absolute -left-[42px] top-1 timeline-dot bg-slate-400"></div><h4 class="font-bold">Inviernos de la IA</h4></div>
-                    <div class="relative"><div class="absolute -left-[42px] top-1 timeline-dot bg-pink-500 animate-pulse"></div><h4 class="font-bold">Era Deep Learning</h4></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Module 2: Visual Impact -->
-        <section class="bg-white py-16 px-6 border-y border-slate-100">
-            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                <div class="chart-container">
-                    <canvas id="radarImpacto"></canvas>
-                </div>
-                <div>
-                    <h3 class="text-cyan-600 font-bold uppercase tracking-wide mb-2">Módulo 2: Vida Cotidiana</h3>
-                    <h2 class="text-4xl font-bold text-slate-800 mb-6">La Presencia Invisible</h2>
-                    <p class="text-slate-600">Algoritmos que moldean deseos y erosionan la verdad común mediante la personalización extrema y burbujas de filtros.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Module 3: Work -->
-        <section class="py-16 px-6 bg-slate-50">
-            <div class="max-w-6xl mx-auto">
-                <h3 class="text-center text-pink-600 font-bold uppercase mb-8">Módulo 3: El Futuro del Trabajo</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="chart-container">
-                        <canvas id="barrasTrabajo"></canvas>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Vínculos Sociales</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Modelos actuando como amigos o asesores, generando una nueva inteligencia emocional asistida pero con riesgos de dependencia.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Salud Mental</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Capacidad de decodificar redes neuronales para tratar PTSD, con el riesgo de manipulación emocional algorítmica.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Alineación Ética</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Asegurar que los objetivos de una IA poderosa coincidan con los valores humanos para evitar pérdidas de autonomía.</p>
+                        </div>
                     </div>
-                    <div class="flex flex-col justify-center">
-                        <h4 class="text-2xl font-bold mb-4">Aumento vs. Sustitución</h4>
-                        <p class="text-slate-600 mb-4">La IA como copiloto genera una productividad exponencial, pero desplaza roles tradicionales de "cuello blanco".</p>
-                        <ul class="text-sm space-y-2">
-                            <li class="flex items-center"><span class="w-3 h-3 bg-pink-500 rounded-full mr-2"></span> Automatización de tareas</li>
-                            <li class="flex items-center"><span class="w-3 h-3 bg-cyan-500 rounded-full mr-2"></span> Aumento de capacidades</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Module 4: Health -->
-        <section class="py-16 px-6 bg-white">
-            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-cyan-600 font-bold uppercase mb-2">Módulo 4: Salud</h3>
-                    <h2 class="text-4xl font-bold text-slate-800 mb-6">El Oráculo Médico</h2>
-                    <p class="text-slate-600">AlphaFold y diagnósticos de precisión. El tiempo de descubrimiento de fármacos se reduce de años a meses.</p>
                 </div>
                 <div class="chart-container">
-                    <canvas id="donutSalud"></canvas>
+                    <canvas id="chart5"></canvas>
                 </div>
             </div>
         </section>
+
+        <!-- Conclusión -->
+        <section class="py-20 text-center">
+            <div class="max-w-3xl mx-auto p-12 rounded-[3rem] bg-white text-slate-900 shadow-[0_0_50px_rgba(6,182,212,0.3)]">
+                <p class="text-2xl font-light italic leading-relaxed mb-10">
+                    "La IA no es el fin de nuestra historia, es el comienzo de una colaboración donde debemos definir qué es lo que nos hace irreemplazables."
+                </p>
+                <div class="flex flex-col items-center">
+                    <div class="h-1 w-12 bg-cyan-500 mb-4"></div>
+                    <span class="font-black text-xl tracking-tighter">RODRIGO CÁRCAMO HURTADO</span>
+                    <span class="text-cyan-600 font-bold text-xs uppercase tracking-widest">Co-founder DataflowIA</span>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Updated Footer with Branding -->
-    <footer class="bg-indigo-950 text-white py-12 px-6 border-t border-white/10">
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-16 px-6 border-t border-white/5">
         <div class="max-w-6xl mx-auto text-center">
-            <div class="brand-logo text-cyan-400 font-black text-3xl tracking-tighter mb-6">
+            <div class="brand-logo text-cyan-400 font-black text-4xl tracking-tighter mb-10">
                 DATAFLOW IA
             </div>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-12 mb-8 text-indigo-200">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-12 text-gray-400 text-sm">
                 <a href="https://www.dataflowia.com" class="hover:text-cyan-400 transition-colors">www.dataflowia.com</a>
                 <a href="mailto:contacto@dataflowia.com" class="hover:text-cyan-400 transition-colors">contacto@dataflowia.com</a>
             </div>
-            <div class="text-indigo-400 text-xs uppercase tracking-widest">
-                © 2026 Todos los derechos reservados
+            <div class="text-[10px] text-gray-600 uppercase tracking-[0.5em]">
+                &copy; 2026 Todos los derechos reservados | Rodrigo Cárcamo
             </div>
         </div>
     </footer>
 
     <script>
-        // Utilidad de wrap para etiquetas largas
-        const wrap = (s) => s.length > 16 ? [s.slice(0, 16), s.slice(16)] : s;
-
-        // Configuración de Tooltips
-        const tooltipPlugin = {
-            callbacks: {
-                title: (items) => {
-                    const label = items[0].chart.data.labels[items[0].dataIndex];
-                    return Array.isArray(label) ? label.join('') : label;
+        // Observador para animaciones suaves al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
-            }
-        };
+            });
+        }, { threshold: 0.1 });
 
+        document.querySelectorAll('.card-3d').forEach(card => observer.observe(card));
+
+        // Inicialización de Gráficos corregida
         window.onload = () => {
-            // Radar Chart - Vida Cotidiana
-            new Chart(document.getElementById('radarImpacto'), {
+            // Configuración base para evitar errores de escalas
+            const baseRadarOptions = {
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    r: {
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { display: false },
+                        pointLabels: { color: 'rgba(255, 255, 255, 0.5)', font: { size: 10 } }
+                    }
+                }
+            };
+
+            // M1: Génesis
+            new Chart(document.getElementById('chart1'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Cómputo', 'Datos', 'Algoritmos'],
+                    datasets: [{
+                        data: [40, 35, 25],
+                        backgroundColor: ['#06b6d4', '#1e293b', '#334155'],
+                        borderWidth: 0
+                    }]
+                },
+                options: { maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            });
+
+            // M2: Vida Diaria
+            new Chart(document.getElementById('chart2'), {
                 type: 'radar',
                 data: {
-                    labels: ['Algoritmos de Recomendación', 'Burbujas Filtro', 'Privacidad', 'Polarización', 'Asistentes'].map(wrap),
+                    labels: ['TikTok', 'Spotify', 'Amazon', 'Google', 'Meta'],
                     datasets: [{
-                        label: 'Nivel de Impacto',
-                        data: [95, 80, 70, 85, 60],
-                        borderColor: '#06b6d4',
-                        backgroundColor: 'rgba(6, 182, 212, 0.2)',
-                        pointBackgroundColor: '#ec4899'
+                        data: [95, 80, 70, 90, 85],
+                        borderColor: '#6366f1',
+                        backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                        borderWidth: 2
+                    }]
+                },
+                options: baseRadarOptions
+            });
+
+            // M3: Trabajo
+            new Chart(document.getElementById('chart3'), {
+                type: 'bar',
+                data: {
+                    labels: ['Legales', 'Software', 'Arte', 'Admin'],
+                    datasets: [{
+                        data: [70, 85, 40, 90],
+                        backgroundColor: '#ec4899',
+                        borderRadius: 8
                     }]
                 },
                 options: {
                     maintainAspectRatio: false,
-                    plugins: { tooltip: tooltipPlugin }
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { color: '#64748b' } },
+                        y: { display: false }
+                    }
                 }
             });
 
-            // Bar Chart - Trabajo
-            new Chart(document.getElementById('barrasTrabajo'), {
-                type: 'bar',
+            // M4: Salud
+            new Chart(document.getElementById('chart4'), {
+                type: 'polarArea',
                 data: {
-                    labels: ['Administración', 'Creatividad', 'Tecnología', 'Salud'].map(wrap),
-                    datasets: [
-                        { label: 'Automatización', data: [75, 20, 40, 15], backgroundColor: '#ec4899' },
-                        { label: 'Aumento Humano', data: [25, 80, 60, 85], backgroundColor: '#06b6d4' }
-                    ]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    scales: { y: { beginAtZero: true, max: 100 } },
-                    plugins: { tooltip: tooltipPlugin }
-                }
-            });
-
-            // Donut Chart - Salud
-            new Chart(document.getElementById('donutSalud'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Diagnóstico Precisión', 'Descubrimiento Fármacos', 'Monitoreo Wearables'].map(wrap),
+                    labels: ['Diagnóstico', 'Farmacia', 'Genética', 'Proteínas'],
                     datasets: [{
-                        data: [40, 35, 25],
-                        backgroundColor: ['#312e81', '#06b6d4', '#ec4899'],
+                        data: [80, 95, 70, 85],
+                        backgroundColor: ['rgba(6,182,212,0.5)', 'rgba(30,41,59,0.5)', 'rgba(15,23,42,0.5)', 'rgba(6,182,212,0.8)'],
                         borderWidth: 0
                     }]
                 },
                 options: {
                     maintainAspectRatio: false,
-                    plugins: { tooltip: tooltipPlugin }
+                    plugins: { legend: { display: false } },
+                    scales: { r: { grid: { display: false }, ticks: { display: false } } }
                 }
             });
-        };
+
+            // M5: Conducta
+            new Chart(document.getElementById('chart5'), {
+                type: 'radar',
+                data: {
+                    labels: ['Confianza', 'Empatía', 'Dependencia', 'Seguridad', 'Ética'],
+                    datasets: [{
+                        data: [40, 70, 85, 30, 90],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderWidth: 2
+                    }]
+                },
+                options: baseRadarOptions
+            });
+        }
     </script>
 </body>
 </html>

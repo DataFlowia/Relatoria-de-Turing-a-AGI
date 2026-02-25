@@ -6,7 +6,8 @@
     <title>Relatoría IA - Rodrigo Cárcamo - Dataflow IA</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Importación de Roboto y Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-cian: #06b6d4;
@@ -17,17 +18,26 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: var(--bg-dark);
             color: #f1f5f9;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .brand-logo {
+        /* Títulos principales mantienen Orbitron para look tecnológico */
+        h1, .brand-logo {
             font-family: 'Orbitron', sans-serif;
         }
 
-        /* Efectos de Contenedor 3D */
+        /* Títulos de contenedores en Roboto con tamaño uniforme */
+        .container-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem; /* Tamaño uniforme */
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         .card-3d {
             background: rgba(15, 23, 42, 0.8);
             border-radius: 2rem;
@@ -49,7 +59,6 @@
             border-color: rgba(6, 182, 212, 0.3);
         }
 
-        /* Bordes Brillantes por Módulo */
         .border-glow-cian { border-left: 6px solid var(--color-cian); }
         .border-glow-indigo { border-left: 6px solid var(--color-indigo); }
         .border-glow-pink { border-left: 6px solid var(--color-pink); }
@@ -73,7 +82,6 @@
             pointer-events: none;
         }
 
-        /* Input Styles */
         .form-input {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -81,6 +89,7 @@
             padding: 0.75rem 1rem;
             width: 100%;
             color: white;
+            font-family: 'Roboto', sans-serif;
             transition: all 0.3s ease;
         }
 
@@ -91,7 +100,6 @@
             box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
         }
 
-        /* Glass Panel para el resumen inicial */
         .glass-panel {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(10px);
@@ -124,7 +132,7 @@
                 <div class="h-1 w-24 bg-gradient-to-r from-cyan-500 to-pink-500 mb-6"></div>
                 <div class="space-y-1">
                     <span class="block text-gray-500 uppercase text-[10px] tracking-widest">Ponente</span>
-                    <h2 class="text-3xl font-bold text-white uppercase">Rodrigo Cárcamo Hurtado</h2>
+                    <h2 class="text-3xl font-bold text-white uppercase font-roboto">Rodrigo Cárcamo Hurtado</h2>
                     <span class="text-cyan-400 font-medium tracking-widest uppercase text-sm">Founder DataflowIA</span>
                 </div>
             </div>
@@ -137,7 +145,7 @@
         <div class="card-3d visible glass-panel p-8 md:p-10 border-t-4 border-cyan-500">
             <div class="grid md:grid-cols-4 gap-8 items-center">
                 <div class="md:col-span-3">
-                    <h2 class="text-2xl font-bold text-white mb-3">De la Lógica de Turing a la Psique Humana</h2>
+                    <h2 class="container-title text-white mb-3">De la Lógica de Turing a la Psique Humana</h2>
                     <p class="text-gray-400 leading-relaxed">Una exploración profunda sobre cómo la inteligencia artificial ha dejado de ser una herramienta para convertirse en una extensión de nuestra conducta y estructura social.</p>
                 </div>
                 <div class="bg-slate-900/50 rounded-2xl p-6 text-center border border-white/5">
@@ -147,12 +155,12 @@
             </div>
         </div>
 
-        <!-- Módulo 1: Génesis -->
+        <!-- Módulo 1 -->
         <section class="card-3d border-glow-cian p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center">
             <div class="flex-1">
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-cyan-400 font-black text-4xl opacity-20">01</span>
-                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Génesis: Sueños de Silicio</h3>
+                    <h3 class="container-title text-white">Génesis: Sueños de Silicio</h3>
                 </div>
                 <p class="text-gray-400 leading-relaxed mb-6">Desde el Test de Turing en 1950 hasta la explosión del Deep Learning. Analizamos cómo la convergencia de datos masivos sacó a la IA de los laboratorios hacia la infraestructura global.</p>
             </div>
@@ -161,12 +169,12 @@
             </div>
         </section>
 
-        <!-- Módulo 2: Vida Diaria -->
+        <!-- Módulo 2 -->
         <section class="card-3d border-glow-indigo p-10 md:p-16 flex flex-col md:flex-row-reverse gap-12 items-center">
             <div class="flex-1">
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-indigo-400 font-black text-4xl opacity-20">02</span>
-                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Vida Diaria: Presencia Invisible</h3>
+                    <h3 class="container-title text-white">Vida Diaria: Presencia Invisible</h3>
                 </div>
                 <p class="text-gray-400 leading-relaxed mb-6">Los algoritmos ya no son externos; son la arquitectura de nuestra realidad. Moldean deseos a través de sistemas de recomendación y burbujas de filtros.</p>
             </div>
@@ -175,14 +183,14 @@
             </div>
         </section>
 
-        <!-- Módulo 3: Trabajo -->
+        <!-- Módulo 3 -->
         <section class="card-3d border-glow-pink p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center">
             <div class="flex-1">
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-pink-400 font-black text-4xl opacity-20">03</span>
-                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Economía: Humano vs Copiloto</h3>
+                    <h3 class="container-title text-white">Economía: Humano vs Copiloto</h3>
                 </div>
-                <p class="text-gray-400 leading-relaxed mb-6">La IA como el copiloto definitivo. No se trata de sustitución, sino de aumento de capacidades. El desafío reside en la re-capacitación masiva del talento.</p>
+                <p class="text-gray-400 leading-relaxed mb-6">La IA como el copiloto definitivo. No se trata de sustitución, sino de aumento de capacidades. Basado en reportes de Goldman Sachs sobre automatización selectiva.</p>
                 <div class="chart-container" style="height: 200px;">
                     <canvas id="chart3"></canvas>
                 </div>
@@ -190,17 +198,17 @@
             <div class="flex-1 space-y-4">
                 <div class="bg-pink-500/10 p-6 rounded-2xl border border-pink-500/20">
                     <h4 class="text-pink-400 font-bold mb-2 text-sm uppercase">Impacto en Profesiones</h4>
-                    <p class="text-xs text-gray-300">Roles de programación y administración enfrentan una automatización del 40-60% de tareas.</p>
+                    <p class="text-xs text-gray-300 font-medium italic">Referencia: Goldman Sachs Global Economics Analyst.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Módulo 4: Salud -->
+        <!-- Módulo 4 -->
         <section class="card-3d border-glow-cian p-10 md:p-16 flex flex-col md:flex-row-reverse gap-12 items-center">
             <div class="flex-1">
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-cyan-400 font-black text-4xl opacity-20">04</span>
-                    <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Salud: El Oráculo Médico</h3>
+                    <h3 class="container-title text-white">Salud: El Oráculo Médico</h3>
                 </div>
                 <p class="text-gray-400 leading-relaxed mb-6">Desde el diagnóstico de precisión hasta AlphaFold. La IA está reduciendo el tiempo de descubrimiento de fármacos de décadas a solo meses.</p>
             </div>
@@ -209,26 +217,22 @@
             </div>
         </section>
 
-        <!-- Módulo 5: Conducta -->
+        <!-- Módulo 5 -->
         <section class="card-3d border-glow-emerald p-10 md:p-16 bg-emerald-500/5">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="flex items-center gap-4 mb-8">
                         <span class="text-emerald-400 font-black text-4xl opacity-20">05</span>
-                        <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Conducta y Psique</h3>
+                        <h3 class="container-title text-white">Conducta y Psique</h3>
                     </div>
                     <div class="space-y-6">
                         <div>
-                            <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Vínculos Sociales</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed">Modelos actuando como amigos o asesores, generando una nueva inteligencia emocional asistida.</p>
-                        </div>
-                        <div>
                             <h4 class="text-emerald-400 font-bold text-sm uppercase tracking-wider">Alineación Ética</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed">Asegurar que los objetivos de una IA coincidan con los valores humanos.</p>
+                            <p class="text-xs text-gray-400 leading-relaxed">Asegurar que los objetivos de una IA coincidan con los valores humanos, según Stanford HAI.</p>
                         </div>
                     </div>
                 </div>
-                <div class="chart-container">
+                <div class="flex-1 chart-container">
                     <canvas id="chart5"></canvas>
                 </div>
             </div>
@@ -238,13 +242,12 @@
         <section class="card-3d border-glow-cian p-10 md:p-16">
             <div class="max-w-xl mx-auto">
                 <div class="text-center mb-8">
-                    <h3 class="text-3xl font-bold text-white uppercase tracking-tighter">Contáctanos</h3>
+                    <h3 class="container-title text-white">Contáctanos</h3>
                     <p class="text-cyan-400 text-sm mt-2">Hablemos sobre el futuro de la Inteligencia Artificial</p>
                 </div>
                 
                 <form action="https://formsubmit.co/rodrigo@dataflowia.com" method="POST" class="space-y-6">
                     <input type="hidden" name="_subject" value="Nuevo contacto desde Relatoría IA">
-                    <input type="hidden" name="_next" value="https://www.dataflowia.com">
                     <input type="hidden" name="_captcha" value="false">
 
                     <div class="space-y-2">
@@ -257,10 +260,35 @@
                         <input type="email" name="email" required class="form-input" placeholder="tu@correo.com">
                     </div>
 
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Mensaje:</label>
+                        <textarea name="message" required rows="4" class="form-input resize-none" placeholder="Escribe aquí tu consulta o mensaje..."></textarea>
+                    </div>
+
                     <button type="submit" class="w-full py-4 px-6 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transform hover:-translate-y-1">
                         Enviar Mensaje
                     </button>
                 </form>
+            </div>
+        </section>
+
+        <!-- Reflexión Estratégica -->
+        <section class="card-3d border-glow-indigo p-10 md:p-16 bg-indigo-500/5">
+            <div class="max-w-3xl mx-auto">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+                        <span class="text-indigo-400 text-xl font-bold italic">M</span>
+                    </div>
+                    <h3 class="container-title text-white">Reflexión Estratégica</h3>
+                </div>
+                <div class="text-gray-300 leading-relaxed text-sm space-y-4">
+                    <p>
+                        Estamos en un punto de inflexión histórico donde la tecnología ya no solo procesa datos, sino que interpreta nuestra realidad y redefine lo que entendemos por productividad y creatividad. Como **Founder de Dataflow IA**, mi compromiso es guiar esta transición asegurando que la adopción de la inteligencia artificial no sea un proceso de sustitución, sino una expansión del potencial humano. 
+                    </p>
+                    <p>
+                        El futuro no pertenece a las máquinas, sino a quienes sepan colaborar con ellas para resolver los desafíos más complejos de nuestra civilización. Te invito a ser parte de esta revolución con propósito, donde la innovación y la humanidad caminan de la mano.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -321,6 +349,7 @@
                 }
             };
 
+            // M1
             new Chart(document.getElementById('chart1'), {
                 type: 'doughnut',
                 data: {
@@ -334,6 +363,7 @@
                 options: { maintainAspectRatio: false, plugins: { legend: { display: false } } }
             });
 
+            // M2
             new Chart(document.getElementById('chart2'), {
                 type: 'radar',
                 data: {
@@ -348,6 +378,7 @@
                 options: baseRadarOptions
             });
 
+            // M3
             new Chart(document.getElementById('chart3'), {
                 type: 'bar',
                 data: {
@@ -368,6 +399,7 @@
                 }
             });
 
+            // M4
             new Chart(document.getElementById('chart4'), {
                 type: 'polarArea',
                 data: {
@@ -385,6 +417,7 @@
                 }
             });
 
+            // M5
             new Chart(document.getElementById('chart5'), {
                 type: 'radar',
                 data: {

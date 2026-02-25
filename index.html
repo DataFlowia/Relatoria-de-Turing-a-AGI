@@ -6,7 +6,6 @@
     <title>Relatoría IA - Rodrigo Cárcamo - Dataflow IA</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Importación de Roboto y Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -24,15 +23,13 @@
             overflow-x: hidden;
         }
 
-        /* Títulos principales mantienen Orbitron para look tecnológico */
         h1, .brand-logo {
             font-family: 'Orbitron', sans-serif;
         }
 
-        /* Títulos de contenedores en Roboto con tamaño uniforme */
         .container-title {
             font-family: 'Roboto', sans-serif;
-            font-size: 1.5rem; /* Tamaño uniforme */
+            font-size: 1.5rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -90,14 +87,6 @@
             width: 100%;
             color: white;
             font-family: 'Roboto', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--color-cian);
-            background: rgba(255, 255, 255, 0.07);
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
         }
 
         .glass-panel {
@@ -111,7 +100,6 @@
 
     <div class="circuit-bg"></div>
 
-    <!-- Header -->
     <header class="relative pt-32 pb-20 px-8">
         <div class="absolute top-8 left-8 z-50">
             <div class="brand-logo text-cyan-400 font-black text-2xl tracking-tighter flex items-center gap-2">
@@ -121,13 +109,11 @@
                 DATAFLOW IA
             </div>
         </div>
-
         <div class="max-w-5xl mx-auto text-center relative z-10">
             <span class="inline-block py-1 px-3 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-6">Relatoría Magistral</span>
             <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-white to-pink-500 uppercase">
                 El Despertar de la Máquina
             </h1>
-            
             <div class="flex flex-col items-center">
                 <div class="h-1 w-24 bg-gradient-to-r from-cyan-500 to-pink-500 mb-6"></div>
                 <div class="space-y-1">
@@ -198,7 +184,7 @@
             <div class="flex-1 space-y-4">
                 <div class="bg-pink-500/10 p-6 rounded-2xl border border-pink-500/20">
                     <h4 class="text-pink-400 font-bold mb-2 text-sm uppercase">Impacto en Profesiones</h4>
-                    <p class="text-xs text-gray-300 font-medium italic">Referencia: Goldman Sachs Global Economics Analyst.</p>
+                    <p class="text-xs text-gray-300">Roles de programación y administración enfrentan una automatización del 40-60% de tareas.</p>
                 </div>
             </div>
         </section>
@@ -245,34 +231,28 @@
                     <h3 class="container-title text-white">Contáctanos</h3>
                     <p class="text-cyan-400 text-sm mt-2">Hablemos sobre el futuro de la Inteligencia Artificial</p>
                 </div>
-                
                 <form action="https://formsubmit.co/rodrigo@dataflowia.com" method="POST" class="space-y-6">
                     <input type="hidden" name="_subject" value="Nuevo contacto desde Relatoría IA">
-                    <input type="hidden" name="_captcha" value="false">
-
                     <div class="space-y-2">
                         <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Nombre:</label>
                         <input type="text" name="name" required class="form-input" placeholder="Tu nombre completo">
                     </div>
-
                     <div class="space-y-2">
                         <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Email:</label>
                         <input type="email" name="email" required class="form-input" placeholder="tu@correo.com">
                     </div>
-
                     <div class="space-y-2">
                         <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Mensaje:</label>
                         <textarea name="message" required rows="4" class="form-input resize-none" placeholder="Escribe aquí tu consulta o mensaje..."></textarea>
                     </div>
-
-                    <button type="submit" class="w-full py-4 px-6 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transform hover:-translate-y-1">
+                    <button type="submit" class="w-full py-4 px-6 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]">
                         Enviar Mensaje
                     </button>
                 </form>
             </div>
         </section>
 
-        <!-- Reflexión Estratégica -->
+        <!-- Reflexión Estratégica (Actualizada según imagen) -->
         <section class="card-3d border-glow-indigo p-10 md:p-16 bg-indigo-500/5">
             <div class="max-w-3xl mx-auto">
                 <div class="flex items-center gap-4 mb-6">
@@ -281,9 +261,9 @@
                     </div>
                     <h3 class="container-title text-white">Reflexión Estratégica</h3>
                 </div>
-                <div class="text-gray-300 leading-relaxed text-sm space-y-4">
+                <div class="text-gray-300 leading-relaxed text-sm space-y-6">
                     <p>
-                        Estamos en un punto de inflexión histórico donde la tecnología ya no solo procesa datos, sino que interpreta nuestra realidad y redefine lo que entendemos por productividad y creatividad. Como **Founder de Dataflow IA**, mi compromiso es guiar esta transición asegurando que la adopción de la inteligencia artificial no sea un proceso de sustitución, sino una expansión del potencial humano. 
+                        Estamos en un punto de inflexión histórico donde la tecnología ya no solo procesa datos, sino que interpreta nuestra realidad y redefine lo que entendemos por productividad y creatividad. Como **Founder de Dataflow IA**, mi compromiso es guiar esta transición asegurando que la adopción de la inteligencia artificial no sea un proceso de sustitución, sino una expansión del potencial humano.
                     </p>
                     <p>
                         El futuro no pertenece a las máquinas, sino a quienes sepan colaborar con ellas para resolver los desafíos más complejos de nuestra civilización. Te invito a ser parte de esta revolución con propósito, donde la innovación y la humanidad caminan de la mano.
@@ -308,7 +288,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-slate-950 text-white py-16 px-6 border-t border-white/5">
         <div class="max-w-6xl mx-auto text-center">
             <div class="brand-logo text-cyan-400 font-black text-4xl tracking-tighter mb-10">
@@ -341,15 +320,16 @@
                 plugins: { legend: { display: false } },
                 scales: {
                     r: {
+                        min: 0,
+                        max: 100,
                         grid: { color: 'rgba(255, 255, 255, 0.05)' },
                         angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
-                        ticks: { display: false },
+                        ticks: { display: false, stepSize: 20 },
                         pointLabels: { color: 'rgba(255, 255, 255, 0.5)', font: { size: 10 } }
                     }
                 }
             };
 
-            // M1
             new Chart(document.getElementById('chart1'), {
                 type: 'doughnut',
                 data: {
@@ -363,7 +343,6 @@
                 options: { maintainAspectRatio: false, plugins: { legend: { display: false } } }
             });
 
-            // M2
             new Chart(document.getElementById('chart2'), {
                 type: 'radar',
                 data: {
@@ -372,13 +351,13 @@
                         data: [95, 80, 70, 90, 85],
                         borderColor: '#6366f1',
                         backgroundColor: 'rgba(99, 102, 241, 0.2)',
-                        borderWidth: 2
+                        borderWidth: 2,
+                        pointBackgroundColor: '#6366f1'
                     }]
                 },
                 options: baseRadarOptions
             });
 
-            // M3
             new Chart(document.getElementById('chart3'), {
                 type: 'bar',
                 data: {
@@ -399,7 +378,6 @@
                 }
             });
 
-            // M4
             new Chart(document.getElementById('chart4'), {
                 type: 'polarArea',
                 data: {
@@ -417,7 +395,6 @@
                 }
             });
 
-            // M5
             new Chart(document.getElementById('chart5'), {
                 type: 'radar',
                 data: {
